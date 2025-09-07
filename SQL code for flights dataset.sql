@@ -2,9 +2,8 @@
 --Among those flights, what was the average delay time, in minutes? 
 
 
-
 Select
-round((count(*) filter (where departure_delay > 0)::numeric)/ count(*) * 100 :: numeric,2)as pct_flights_delayed_departure,
+round((count(*) filter (where departure_delay > 0)::numeric)/ count(*) * 100 :: numeric,2) as pct_flights_delayed_departure,
 round(avg(arrival_delay) filter (where departure_delay >0),2) as avg_delay_minutes
 from flights
 
@@ -12,7 +11,6 @@ from flights
 
 --How does the % of delayed flights vary throughout the year? 
 --What about for flights leaving from Boston (BOS) specifically? 
-
 
 
 Select
@@ -40,7 +38,7 @@ round(count(*) filter(where departure_delay > 15)::numeric/ count(*) *100,2) as 
 from flights
 where origin_airport = 'BOS'
 group by month_name, month
-order by month) as b
+order by month) as table1
 order by month
 
 
@@ -60,7 +58,6 @@ from flights
 
 --Which airlines seem to be most and least reliable, 
 --in terms of on-time departure?
-
 
 
 Select
@@ -136,15 +133,14 @@ order by round((count(cancellation_reason):: numeric)/count(*) *100,2) DESC
 --Identifies problematic routes.
 
 
-
 SELECT
     origin_airport || ' - ' || destination_airport AS route,
-    ROUND(AVG(arrival_delay),2) AS avg_arrival_delay,
+    round(AVG(arrival_delay),2) AS avg_arrival_delay,
 	count(*) number_of_flights,
 	
 FROM flights
-GROUP BY origin_airport || ' - ' || destination_airport
-ORDER BY avg_arrival_delay DESC
+group by origin_airport || ' - ' || destination_airport
+order by avg_arrival_delay DESC
 
 
 
