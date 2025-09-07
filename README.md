@@ -35,13 +35,12 @@ Source: U.S. Department of Transportation (2015 Flights Data).
 
 ## 📊 Key Insights
 - Hawaiian Airlines was the most reliable with the lowest average delays.  
-- Spirit Airlines showed the highest average departure delays.  
-- Weather accounted for ~X% of cancellations (SQL file shows exact numbers).  
+- Spirit Airlines showed the highest average departure delays.   
 - Chicago O’Hare International contributed the highest share of total system-wide delay minutes (~7.3%).  
 - Southwest Airlines operated the most flights (~1.26M).  
 
 ---
 
 ## 📌 Author
-Created by Anass El-Sharda  
+Created by Anass El-Sharda -- Aspiring Data Analyst 
 
